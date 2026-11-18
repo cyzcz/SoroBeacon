@@ -174,6 +174,7 @@ func (r *queryResolver) Monitors(ctx context.Context, enabled *bool, limit *int,
 	}, nil
 }
 
+// Alert retrieves a single alert by its numeric identifier.
 func (r *queryResolver) Alert(ctx context.Context, id string) (*Alert, error) {
 	alertID, err := strconv.ParseInt(id, 10, 64)
 	if err != nil {
@@ -756,6 +757,7 @@ type Channel struct {
 	CreatedAt         DateTime
 }
 
+// Alert represents a triggered monitor alert in the GraphQL schema.
 type Alert struct {
 	ID                 string
 	MonitorID          string
