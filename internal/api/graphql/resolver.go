@@ -263,6 +263,7 @@ func (r *queryResolver) Alerts(ctx context.Context, monitorID *string, ruleID *s
 	}, nil
 }
 
+// Stats resolves aggregate monitor, rule, channel, and alert counts.
 func (r *queryResolver) Stats(ctx context.Context) (*Stats, error) {
 	s, err := r.store.GetStats(ctx)
 	if err != nil {
@@ -770,6 +771,7 @@ type Alert struct {
 	InhibitedByRuleID  *string
 }
 
+// Stats holds aggregate counts and polling metadata for the GraphQL API.
 type Stats struct {
 	Monitors      int
 	Rules         int
