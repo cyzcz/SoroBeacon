@@ -189,6 +189,7 @@ func (r *queryResolver) Alert(ctx context.Context, id string) (*Alert, error) {
 	return toAlert(a), nil
 }
 
+// Alerts returns a paginated connection of alerts matching the provided filter criteria.
 func (r *queryResolver) Alerts(ctx context.Context, monitorID *string, ruleID *string, contractID *string, from *DateTime, to *DateTime, severity *Severity, limit *int, cursor *string, sort *AlertSort) (*AlertConnection, error) {
 	f := store.AlertFilter{}
 	if monitorID != nil && *monitorID != "" {
